@@ -37,7 +37,7 @@ namespace FileReadSampleApi.Services
             return await task;
         }
 
-        private static int EmulateWaitInMs = (int)TimeSpan.FromMinutes(2).TotalMilliseconds;
+        private static int EmulateWaitInMs = (int)TimeSpan.FromSeconds(2).TotalMilliseconds;
 
 
         static object locker = new object();
