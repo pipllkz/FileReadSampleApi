@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: price-ingress-nginx
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    certmanager.k8s.io/cluster-issuer: letsencrypt
+spec:
+  rules:
+  - host: $priceurl
+    http:
+      paths:
+      - backend:
+          serviceName: price-service
+          servicePort: 80
+  tls:
+  - hosts:
+    - $priceurl
+    secretName: price-tls
